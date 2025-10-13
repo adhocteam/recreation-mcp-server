@@ -1,0 +1,40 @@
+{
+  "RECDATA": [
+    {
+      "ActivityID": 5,
+      "ActivityParentID": 0,
+      "ActivityName": "BIKING",
+      "ActivityLevel": 1
+    },
+    {
+      "ActivityID": 9,
+      "ActivityParentID": 0,
+      "ActivityName": "CAMPING",
+      "ActivityLevel": 1
+    },
+    {
+      "ActivityID": 11,
+      "ActivityParentID": 0,
+      "ActivityName": "FISHING",
+      "ActivityLevel": 1
+    },
+    {
+      "ActivityID": 14,
+      "ActivityParentID": 0,
+      "ActivityName": "HIKING",
+      "ActivityLevel": 1
+    },
+    {
+      "ActivityID": 32,
+      "ActivityParentID": 0,
+      "ActivityName": "SWIMMING",
+      "ActivityLevel": 1
+    }
+  ],
+  "METADATA": {
+    "RESULTS": {
+      "CURRENT_COUNT": 5,
+      "TOTAL_COUNT": 5
+    }
+  }
+}

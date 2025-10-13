@@ -1,0 +1,120 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+# Set minimal permissions for the workflow
+# Following principle of least privilege
+permissions:
+  contents: read        # Allow reading repository contents
+  checks: write        # Allow writing check runs (test results)
+  pull-requests: write # Allow commenting on PRs (for coverage reports)
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    
+    # Job-specific permissions (more restrictive than workflow-level)
+    permissions:
+      contents: read        # Read repository code
+      checks: write        # Write test results
+      pull-requests: write # Comment coverage on PRs
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Go
+      uses: actions/setup-go@v5
+      with:
+        go-version: '1.21'
+        cache: true
+
+    - name: Verify dependencies
+      run: go mod verify
+
+    - name: Run go vet
+      run: go vet ./...
+
+    - name: Run tests
+      run: go test -v -race -timeout 30s ./...
+
+    - name: Run tests with coverage
+      run: go test -coverprofile=coverage.out -covermode=atomic ./...
+
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v4
+      with:
+        file: ./coverage.out
+        flags: unittests
+        name: codecov-umbrella
+        fail_ci_if_error: false
+
+    - name: Check test coverage
+      run: |
+        COVERAGE=$(go tool cover -func=coverage.out | grep total | awk '{print $3}' | sed 's/%//')
+        echo "Total coverage: ${COVERAGE}%"
+        # Optionally fail if coverage is below threshold
+        # if (( $(echo "$COVERAGE < 25.0" | bc -l) )); then
+        #   echo "Coverage ${COVERAGE}% is below minimum 25%"
+        #   exit 1
+        # fi
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    
+    # Lint only needs to read code and write check results
+    permissions:
+      contents: read  # Read repository code
+      checks: write   # Write lint check results
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Go
+      uses: actions/setup-go@v5
+      with:
+        go-version: '1.21'
+        cache: true
+
+    - name: golangci-lint
+      uses: golangci/golangci-lint-action@v4
+      with:
+        version: latest
+        args: --timeout=5m
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    
+    # Build needs to read code and upload artifacts
+    permissions:
+      contents: read  # Read repository code
+      checks: write   # Write build check results
+      # Note: actions/upload-artifact uses GITHUB_TOKEN automatically
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Go
+      uses: actions/setup-go@v5
+      with:
+        go-version: '1.21'
+        cache: true
+
+    - name: Build
+      run: go build -v -o mcp-server ./cmd/server
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: mcp-server
+        path: mcp-server
+        retention-days: 7

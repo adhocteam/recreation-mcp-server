@@ -1,0 +1,40 @@
+{
+  "FacilityID": "233396",
+  "FacilityName": "Eagle Point Campground",
+  "FacilityDescription": "Eagle Point Campground is located on the southwest shore of Emerald Bay in Lake Tahoe.",
+  "FacilityLatitude": 38.9568,
+  "FacilityLongitude": -120.1114,
+  "FacilityPhone": "530-541-3030",
+  "FacilityEmail": "ltbmu@fs.fed.us",
+  "FacilityReservationURL": "http://www.recreation.gov",
+  "FacilityMapURL": "https://www.fs.usda.gov/recarea/ltbmu/recarea/?recid=75208",
+  "FacilityAdaAccess": "Y",
+  "CAMPSITE": [
+    {
+      "CampsiteID": "4675",
+      "CampsiteName": "001",
+      "CampsiteType": "STANDARD NONELECTRIC",
+      "TypeOfUse": "Overnight",
+      "CampsiteAccessible": false,
+      "CampsiteReservable": true
+    }
+  ],
+  "ACTIVITY": [
+    {
+      "ActivityID": 5,
+      "ActivityName": "BIKING"
+    },
+    {
+      "ActivityID": 9,
+      "ActivityName": "CAMPING"
+    },
+    {
+      "ActivityID": 11,
+      "ActivityName": "FISHING"
+    },
+    {
+      "ActivityID": 14,
+      "ActivityName": "HIKING"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "total": "1",
+  "data": [
+    {
+      "id": "C7B7ACA6-78F9-4485-BD6F-276229AD6DF4",
+      "name": "Upper Pines Campground",
+      "parkCode": "yose",
+      "description": "Upper Pines Campground is located in Yosemite Valley at an elevation of 4,000 feet.",
+      "latitude": "37.73587369",
+      "longitude": "-119.5583036",
+      "directionsOverview": "Located in eastern Yosemite Valley",
+      "campsites": {
+        "totalSites": "238",
+        "tentOnly": "35",
+        "electricalHookups": "0",
+        "rvOnly": "0"
+      },
+      "amenities": {
+        "trashRecyclingCollection": "Yes",
+        "toilets": ["Flush Toilets - year round"],
+        "internetConnectivity": "No",
+        "showers": ["None"],
+        "cellPhoneReception": "Yes",
+        "firewoodForSale": "Yes",
+        "foodStorageLockers": "Yes"
+      },
+      "reservations": {
+        "reservationsURL": "http://www.recreation.gov",
+        "reservationsDescription": "Reservations required year-round"
+      },
+      "contacts": {
+        "phoneNumbers": [
+          {
+            "phoneNumber": "2093725200",
+            "description": "",
+            "extension": "",
+            "type": "Voice"
+          }
+        ]
+      }
+    }
+  ]
+}

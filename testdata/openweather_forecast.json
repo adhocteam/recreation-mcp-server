@@ -1,0 +1,103 @@
+{
+  "cod": "200",
+  "message": 0,
+  "cnt": 40,
+  "list": [
+    {
+      "dt": 1697288400,
+      "main": {
+        "temp": 62.4,
+        "feels_like": 60.8,
+        "temp_min": 58.5,
+        "temp_max": 62.4,
+        "pressure": 1014,
+        "humidity": 52
+      },
+      "weather": [
+        {
+          "id": 800,
+          "main": "Clear",
+          "description": "clear sky",
+          "icon": "01n"
+        }
+      ],
+      "clouds": {
+        "all": 5
+      },
+      "wind": {
+        "speed": 3.2,
+        "deg": 285
+      },
+      "dt_txt": "2025-10-14 21:00:00"
+    },
+    {
+      "dt": 1697299200,
+      "main": {
+        "temp": 68.7,
+        "feels_like": 67.1,
+        "temp_min": 68.7,
+        "temp_max": 72.3,
+        "pressure": 1013,
+        "humidity": 41
+      },
+      "weather": [
+        {
+          "id": 801,
+          "main": "Clouds",
+          "description": "few clouds",
+          "icon": "02d"
+        }
+      ],
+      "clouds": {
+        "all": 15
+      },
+      "wind": {
+        "speed": 4.1,
+        "deg": 245
+      },
+      "dt_txt": "2025-10-15 00:00:00"
+    },
+    {
+      "dt": 1697310000,
+      "main": {
+        "temp": 55.2,
+        "feels_like": 53.8,
+        "temp_min": 52.0,
+        "temp_max": 55.2,
+        "pressure": 1015,
+        "humidity": 68
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Rain",
+          "description": "light rain",
+          "icon": "10n"
+        }
+      ],
+      "clouds": {
+        "all": 85
+      },
+      "wind": {
+        "speed": 5.8,
+        "deg": 190
+      },
+      "rain": {
+        "3h": 0.5
+      },
+      "dt_txt": "2025-10-15 03:00:00"
+    }
+  ],
+  "city": {
+    "id": 5397765,
+    "name": "Yosemite Valley",
+    "coord": {
+      "lat": 37.8488,
+      "lon": -119.5571
+    },
+    "country": "US",
+    "timezone": -25200,
+    "sunrise": 1697204400,
+    "sunset": 1697246400
+  }
+}

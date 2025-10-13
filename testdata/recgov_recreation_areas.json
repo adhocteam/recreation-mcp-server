@@ -1,0 +1,46 @@
+{
+  "RECDATA": [
+    {
+      "RecAreaID": "2991",
+      "RecAreaName": "Lake Tahoe Basin",
+      "RecAreaDescription": "Lake Tahoe is the largest alpine lake in North America.",
+      "RecAreaLatitude": 39.0968,
+      "RecAreaLongitude": -120.0324,
+      "StayLimit": "14",
+      "RecAreaPhone": "530-543-2600",
+      "RecAreaEmail": "ltbmu@fs.fed.us",
+      "RecAreaReservationURL": "http://www.recreation.gov",
+      "RecAreaMapURL": "https://www.fs.usda.gov/ltbmu",
+      "ACTIVITY": [
+        {
+          "ActivityID": 5,
+          "ActivityName": "BIKING"
+        },
+        {
+          "ActivityID": 9,
+          "ActivityName": "CAMPING"
+        },
+        {
+          "ActivityID": 14,
+          "ActivityName": "HIKING"
+        }
+      ],
+      "FACILITY": [
+        {
+          "FacilityID": "233396",
+          "FacilityName": "Eagle Point Campground"
+        },
+        {
+          "FacilityID": "233397",
+          "FacilityName": "Meeks Bay Campground"
+        }
+      ]
+    }
+  ],
+  "METADATA": {
+    "RESULTS": {
+      "CURRENT_COUNT": 1,
+      "TOTAL_COUNT": 1
+    }
+  }
+}

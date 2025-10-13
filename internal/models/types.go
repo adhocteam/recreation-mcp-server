@@ -106,21 +106,22 @@ type Alert struct {
 
 // Campground represents a campground facility
 type Campground struct {
-	ID                 string          `json:"id"`
-	Name               string          `json:"name"`
-	ParkCode           string          `json:"parkCode,omitempty"`
-	Description        string          `json:"description"`
-	Latitude           string          `json:"latitude,omitempty"`
-	Longitude          string          `json:"longitude,omitempty"`
-	Amenities          []string        `json:"amenities,omitempty"`
-	Accessibility      []string        `json:"accessibility,omitempty"`
-	Campsites          []Campsite      `json:"campsites,omitempty"`
-	Contacts           *Contact        `json:"contacts,omitempty"`
-	Hours              *OperatingHours `json:"operatingHours,omitempty"`
-	Fees               []Fee           `json:"fees,omitempty"`
-	DirectionsOverview string          `json:"directionsOverview,omitempty"`
-	ReservationInfo    string          `json:"reservationInfo,omitempty"`
-	ReservationURL     string          `json:"reservationUrl,omitempty"`
+	ID                 string                 `json:"id"`
+	Name               string                 `json:"name"`
+	ParkCode           string                 `json:"parkCode,omitempty"`
+	Description        string                 `json:"description"`
+	Latitude           string                 `json:"latitude,omitempty"`
+	Longitude          string                 `json:"longitude,omitempty"`
+	Amenities          map[string]interface{} `json:"amenities,omitempty"`
+	Accessibility      []string               `json:"accessibility,omitempty"`
+	Campsites          map[string]interface{} `json:"campsites,omitempty"`
+	Contacts           *Contact               `json:"contacts,omitempty"`
+	Hours              *OperatingHours        `json:"operatingHours,omitempty"`
+	Fees               []Fee                  `json:"fees,omitempty"`
+	DirectionsOverview string                 `json:"directionsOverview,omitempty"`
+	ReservationInfo    string                 `json:"reservationInfo,omitempty"`
+	ReservationURL     string                 `json:"reservationUrl,omitempty"`
+	Reservations       map[string]interface{} `json:"reservations,omitempty"`
 }
 
 // Campsite represents an individual campsite

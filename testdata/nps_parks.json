@@ -1,0 +1,157 @@
+{
+  "total": "2",
+  "data": [
+    {
+      "id": "77E0D7F0-1942-494A-ACE2-9004D2BDC59E",
+      "parkCode": "yose",
+      "name": "Yosemite",
+      "fullName": "Yosemite National Park",
+      "description": "Not just a great valley, but a shrine to human foresight, the strength of granite, the power of glaciers, the persistence of life, and the tranquility of the High Sierra.",
+      "states": "CA",
+      "latitude": "37.84883288",
+      "longitude": "-119.5571873",
+      "url": "https://www.nps.gov/yose/index.htm",
+      "weatherInfo": "Yosemite National Park covers nearly 1,200 square miles (3,100 square km) in the Sierra Nevada.",
+      "directionsInfo": "You can drive to Yosemite year-round and enter via Highways 41, 140, and 120 from the west.",
+      "activities": [
+        {
+          "id": "13A57703-BB1A-41A2-94B8-53B692EB7238",
+          "name": "Astronomy"
+        },
+        {
+          "id": "5F723BAD-7359-48FC-98FA-631592256E35",
+          "name": "Auto and ATV"
+        }
+      ],
+      "entranceFees": [
+        {
+          "cost": "35.00",
+          "description": "Valid for seven days",
+          "title": "Non-commercial car, pickup truck, RV, or van with 15 or fewer passenger seats"
+        }
+      ],
+      "operatingHours": [
+        {
+          "name": "Yosemite National Park",
+          "description": "Yosemite is open 24 hours per day, 365 days per year.",
+          "standardHours": {
+            "monday": "All Day",
+            "tuesday": "All Day",
+            "wednesday": "All Day",
+            "thursday": "All Day",
+            "friday": "All Day",
+            "saturday": "All Day",
+            "sunday": "All Day"
+          }
+        }
+      ],
+      "addresses": [
+        {
+          "type": "Physical",
+          "line1": "9035 Village Drive",
+          "city": "Yosemite Valley",
+          "stateCode": "CA",
+          "postalCode": "95389"
+        }
+      ],
+      "images": [
+        {
+          "credit": "NPS / Cindy Jacoby",
+          "altText": "Yosemite Falls",
+          "title": "Yosemite Falls",
+          "url": "https://www.nps.gov/common/uploads/structured_data/3C7B0F8B-1DD8-B71B-0B1C7CB883AA8FB1.jpg"
+        }
+      ],
+      "contacts": {
+        "phoneNumbers": [
+          {
+            "phoneNumber": "2093725200",
+            "description": "",
+            "extension": "",
+            "type": "Voice"
+          }
+        ],
+        "emailAddresses": [
+          {
+            "emailAddress": "yose_web_manager@nps.gov",
+            "description": ""
+          }
+        ]
+      }
+    },
+    {
+      "id": "C08AD828-98FF-478E-A63A-1F0EFC7AB0FB",
+      "parkCode": "zion",
+      "name": "Zion",
+      "fullName": "Zion National Park",
+      "description": "Follow the paths where ancient native people and pioneers walked.",
+      "states": "UT",
+      "latitude": "37.29839254",
+      "longitude": "-113.0265138",
+      "url": "https://www.nps.gov/zion/index.htm",
+      "weatherInfo": "Zion National Park is known for a wide range of weather conditions.",
+      "directionsInfo": "Zion National Park is located on State Route 9 in southwest Utah.",
+      "activities": [
+        {
+          "id": "13A57703-BB1A-41A2-94B8-53B692EB7238",
+          "name": "Astronomy"
+        }
+      ],
+      "entranceFees": [
+        {
+          "cost": "35.00",
+          "description": "Valid for seven days",
+          "title": "Private Vehicle"
+        }
+      ],
+      "operatingHours": [
+        {
+          "name": "Zion National Park",
+          "description": "Zion National Park is open every day of the year.",
+          "standardHours": {
+            "monday": "All Day",
+            "tuesday": "All Day",
+            "wednesday": "All Day",
+            "thursday": "All Day",
+            "friday": "All Day",
+            "saturday": "All Day",
+            "sunday": "All Day"
+          }
+        }
+      ],
+      "addresses": [
+        {
+          "type": "Physical",
+          "line1": "1 Zion Park Blvd.",
+          "city": "Springdale",
+          "stateCode": "UT",
+          "postalCode": "84767"
+        }
+      ],
+      "images": [
+        {
+          "credit": "NPS Photo",
+          "altText": "The Patriarchs",
+          "title": "The Patriarchs",
+          "url": "https://www.nps.gov/common/uploads/structured_data/3C7F8B29-1DD8-B71B-0B5EA38E8C5E5606.jpg"
+        }
+      ],
+      "contacts": {
+        "phoneNumbers": [
+          {
+            "phoneNumber": "4357725018",
+            "description": "",
+            "extension": "",
+            "type": "Voice"
+          }
+        ],
+        "emailAddresses": [
+          {
+            "emailAddress": "zion_park_information@nps.gov",
+            "description": ""
+          }
+        ]
+      }
+    }
+  ]
+}

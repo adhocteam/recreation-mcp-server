@@ -1,0 +1,21 @@
+{
+  "total": "2",
+  "data": [
+    {
+      "id": "ABC123",
+      "parkCode": "yose",
+      "title": "Tioga Road Closed for Winter",
+      "category": "Park Closure",
+      "description": "State Route 120 through the park (Tioga Road) is closed for the winter season.",
+      "url": "https://www.nps.gov/yose/planyourvisit/tiogaroad.htm"
+    },
+    {
+      "id": "DEF456",
+      "parkCode": "yose",
+      "title": "Fire Restrictions in Effect",
+      "category": "Danger",
+      "description": "Due to dry conditions, campfires are only allowed in established fire rings.",
+      "url": "https://www.nps.gov/yose/planyourvisit/fire.htm"
+    }
+  ]
+}
