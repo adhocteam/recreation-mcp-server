@@ -1,3 +1,5 @@
+[![CI](https://github.com/adhocteam/recreation-mcp-server/actions/workflows/ci.yml/badge.svg)](https://github.com/adhocteam/recreation-mcp-server/actions/workflows/ci.yml)
+
 # Recreation Opportunities MCP Server
 
 An MCP (Model Context Protocol) server written in Go that enables LLMs like Claude to discover and learn about recreation opportunities by integrating three public REST APIs:
