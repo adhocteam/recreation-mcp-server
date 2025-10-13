@@ -75,16 +75,14 @@ func (h *HTTPClient) doWithRetry(req *http.Request) (*http.Response, error) {
 					h.logger.Warn("Rate limited, retrying",
 						"attempt", attempt+1,
 						"url", req.URL.String())
-					resp.Body.Close()
+					_ = resp.Body.Close()
 					h.backoff(attempt)
 					continue
 				}
 				return resp, fmt.Errorf("rate limit exceeded after %d attempts", attempt+1)
 			}
 			return resp, nil
-		}
-
-		// Log the error
+		} // Log the error
 		if err != nil {
 			h.logger.Warn("HTTP request failed",
 				"attempt", attempt+1,
@@ -95,10 +93,8 @@ func (h *HTTPClient) doWithRetry(req *http.Request) (*http.Response, error) {
 				"attempt", attempt+1,
 				"url", req.URL.String(),
 				"status", resp.StatusCode)
-			resp.Body.Close()
-		}
-
-		// Don't retry on last attempt
+			_ = resp.Body.Close()
+		} // Don't retry on last attempt
 		if attempt < h.retryAttempts {
 			h.backoff(attempt)
 		}
@@ -130,7 +126,9 @@ func (h *HTTPClient) backoff(attempt int) {
 
 // ReadResponseBody reads and closes the response body
 func ReadResponseBody(resp *http.Response) ([]byte, error) {
-	defer resp.Body.Close()
+	defer func() {
+		_ = resp.Body.Close()
+	}()
 
 	body, err := io.ReadAll(resp.Body)
 	if err != nil {

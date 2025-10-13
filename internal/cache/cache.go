@@ -72,7 +72,11 @@ func (c *Cache) Get(key string) ([]byte, bool) {
 		return nil, false
 	}
 
-	entry := element.Value.(*CacheEntry)
+	entry, ok := element.Value.(*CacheEntry)
+	if !ok {
+		c.misses++
+		return nil, false
+	}
 
 	if entry.IsExpired() {
 		c.misses++
@@ -97,7 +101,10 @@ func (c *Cache) Set(key string, value []byte) error {
 	valueSize := len(value)
 
 	if element, found := c.items[key]; found {
-		entry := element.Value.(*CacheEntry)
+		entry, ok := element.Value.(*CacheEntry)
+		if !ok {
+			return fmt.Errorf("invalid cache entry type")
+		}
 		oldSize := entry.Size
 		entry.Value = value
 		entry.Expiration = time.Now().Add(c.ttl)
@@ -137,7 +144,10 @@ func (c *Cache) evictIfNeeded() {
 // removeElement removes an element from the cache
 func (c *Cache) removeElement(element *list.Element) {
 	c.lruList.Remove(element)
-	entry := element.Value.(*CacheEntry)
+	entry, ok := element.Value.(*CacheEntry)
+	if !ok {
+		return
+	}
 	delete(c.items, entry.Key)
 	c.currentSize -= int64(entry.Size)
 }
@@ -167,7 +177,10 @@ func (c *Cache) CleanupExpired() int {
 	var toRemove []*list.Element
 
 	for element := c.lruList.Front(); element != nil; element = element.Next() {
-		entry := element.Value.(*CacheEntry)
+		entry, ok := element.Value.(*CacheEntry)
+		if !ok {
+			continue
+		}
 		if entry.IsExpired() {
 			toRemove = append(toRemove, element)
 		}

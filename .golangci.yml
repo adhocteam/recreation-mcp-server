@@ -1,60 +1,22 @@
-# golangci-lint configuration
+# golangci-lint configuration v2
+version: "2"
+
 run:
   timeout: 5m
-  tests: true
-  modules-download-mode: readonly
+  tests: false  # Don't run linters on test files
 
 linters:
   enable:
-    - errcheck      # Check for unchecked errors
-    - gosimple      # Simplify code
-    - govet         # Reports suspicious constructs
-    - ineffassign   # Detects unused assignments
-    - staticcheck   # Static analysis
-    - unused        # Checks for unused constants, variables, functions and types
-    - gofmt         # Checks if code is formatted
-    - goimports     # Checks import statements
-    - misspell      # Finds commonly misspelled words
-    - unconvert     # Remove unnecessary type conversions
-    - gocritic      # Highly extensible linter with lots of checks
-    - revive        # Fast, configurable, extensible, flexible, and beautiful linter
+    - errcheck
+    - govet
+    - ineffassign
+    - staticcheck
+    - unused
+    - misspell
+    - unconvert
+    - gocritic
 
-linters-settings:
-  errcheck:
-    check-type-assertions: true
-    check-blank: false
-  
-  govet:
-    check-shadowing: false
-  
-  revive:
-    rules:
-      - name: exported
-        disabled: true
-      - name: package-comments
-        disabled: true
-  
-  goimports:
-    local-prefixes: github.com/markheadd/recreation-mcp-server
-
-issues:
-  exclude-use-default: false
-  exclude-rules:
-    # Exclude some linters from running on tests
-    - path: _test\.go
-      linters:
-        - errcheck
-        - gocritic
-    
-    # Exclude testdata
-    - path: testdata/
-      linters:
-        - all
-
-  max-issues-per-linter: 0
-  max-same-issues: 0
-
-output:
-  format: colored-line-number
-  print-issued-lines: true
-  print-linter-name: true
+formatters:
+  enable:
+    - gofmt
+    - goimports

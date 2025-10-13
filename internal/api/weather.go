@@ -72,7 +72,7 @@ func (c *weatherClient) GetCurrentWeather(ctx context.Context, lat, lon float64,
 	if err != nil {
 		return nil, fmt.Errorf("failed to get current weather: %w", err)
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	body, err := util.ReadResponseBody(resp)
 	if err != nil {
@@ -137,7 +137,7 @@ func (c *weatherClient) GetCurrentWeather(ctx context.Context, lat, lon float64,
 	}
 
 	if cacheData, err := json.Marshal(weather); err == nil {
-		c.cache.Set(cacheKey, cacheData)
+		_ = c.cache.Set(cacheKey, cacheData)
 	}
 
 	c.logger.Info("Current weather retrieved", "lat", lat, "lon", lon)
@@ -178,7 +178,7 @@ func (c *weatherClient) GetWeatherForecast(ctx context.Context, lat, lon float64
 	if err != nil {
 		return nil, fmt.Errorf("failed to get weather forecast: %w", err)
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	body, err := util.ReadResponseBody(resp)
 	if err != nil {
@@ -238,7 +238,7 @@ func (c *weatherClient) GetWeatherForecast(ctx context.Context, lat, lon float64
 	}
 
 	if cacheData, err := json.Marshal(forecasts); err == nil {
-		c.cache.Set(cacheKey, cacheData)
+		_ = c.cache.Set(cacheKey, cacheData)
 	}
 
 	c.logger.Info("Weather forecast retrieved", "lat", lat, "lon", lon, "count", len(forecasts))

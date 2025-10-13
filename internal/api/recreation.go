@@ -100,7 +100,7 @@ func (c *recreationGovClient) SearchRecreationAreas(ctx context.Context, params 
 	if err != nil {
 		return nil, fmt.Errorf("failed to search recreation areas: %w", err)
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	body, err := util.ReadResponseBody(resp)
 	if err != nil {
@@ -123,7 +123,7 @@ func (c *recreationGovClient) SearchRecreationAreas(ctx context.Context, params 
 	}
 
 	if cacheData, err := json.Marshal(areas); err == nil {
-		c.cache.Set(cacheKey, cacheData)
+		_ = c.cache.Set(cacheKey, cacheData)
 	}
 
 	c.logger.Info("Recreation areas search completed", "count", len(areas))
@@ -154,7 +154,7 @@ func (c *recreationGovClient) GetRecreationAreaDetails(ctx context.Context, recA
 	if err != nil {
 		return nil, fmt.Errorf("failed to get recreation area details: %w", err)
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	body, err := util.ReadResponseBody(resp)
 	if err != nil {
@@ -167,7 +167,7 @@ func (c *recreationGovClient) GetRecreationAreaDetails(ctx context.Context, recA
 	}
 
 	if cacheData, err := json.Marshal(area); err == nil {
-		c.cache.Set(cacheKey, cacheData)
+		_ = c.cache.Set(cacheKey, cacheData)
 	}
 
 	c.logger.Info("Recreation area details retrieved", "recAreaID", recAreaID)
@@ -206,7 +206,7 @@ func (c *recreationGovClient) SearchFacilities(ctx context.Context, params Searc
 	if err != nil {
 		return nil, fmt.Errorf("failed to search facilities: %w", err)
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	body, err := util.ReadResponseBody(resp)
 	if err != nil {
@@ -229,7 +229,7 @@ func (c *recreationGovClient) SearchFacilities(ctx context.Context, params Searc
 	}
 
 	if cacheData, err := json.Marshal(facilities); err == nil {
-		c.cache.Set(cacheKey, cacheData)
+		_ = c.cache.Set(cacheKey, cacheData)
 	}
 
 	c.logger.Info("Facilities search completed", "count", len(facilities))
@@ -260,7 +260,7 @@ func (c *recreationGovClient) GetFacilityDetails(ctx context.Context, facilityID
 	if err != nil {
 		return nil, fmt.Errorf("failed to get facility details: %w", err)
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	body, err := util.ReadResponseBody(resp)
 	if err != nil {
@@ -273,7 +273,7 @@ func (c *recreationGovClient) GetFacilityDetails(ctx context.Context, facilityID
 	}
 
 	if cacheData, err := json.Marshal(facility); err == nil {
-		c.cache.Set(cacheKey, cacheData)
+		_ = c.cache.Set(cacheKey, cacheData)
 	}
 
 	c.logger.Info("Facility details retrieved", "facilityID", facilityID)
@@ -311,7 +311,7 @@ func (c *recreationGovClient) GetCampsites(ctx context.Context, params SearchCam
 	if err != nil {
 		return nil, fmt.Errorf("failed to search campsites: %w", err)
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	body, err := util.ReadResponseBody(resp)
 	if err != nil {
@@ -334,7 +334,7 @@ func (c *recreationGovClient) GetCampsites(ctx context.Context, params SearchCam
 	}
 
 	if cacheData, err := json.Marshal(campsites); err == nil {
-		c.cache.Set(cacheKey, cacheData)
+		_ = c.cache.Set(cacheKey, cacheData)
 	}
 
 	c.logger.Info("Campsites search completed", "count", len(campsites))
@@ -365,7 +365,7 @@ func (c *recreationGovClient) GetActivities(ctx context.Context) ([]models.Recre
 	if err != nil {
 		return nil, fmt.Errorf("failed to get activities: %w", err)
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	body, err := util.ReadResponseBody(resp)
 	if err != nil {
@@ -388,7 +388,7 @@ func (c *recreationGovClient) GetActivities(ctx context.Context) ([]models.Recre
 	}
 
 	if cacheData, err := json.Marshal(activities); err == nil {
-		c.cache.Set(cacheKey, cacheData)
+		_ = c.cache.Set(cacheKey, cacheData)
 	}
 
 	c.logger.Info("Activities retrieved", "count", len(activities))

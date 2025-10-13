@@ -176,9 +176,9 @@ func TestValidate(t *testing.T) {
 		{
 			name: "Missing NPS key",
 			config: Config{
-				RecreationGovAPIKey:  "key2",
-				OpenWeatherAPIKey:    "key3",
-				LogLevel:             "info",
+				RecreationGovAPIKey: "key2",
+				OpenWeatherAPIKey:   "key3",
+				LogLevel:            "info",
 			},
 			wantError: true,
 		},

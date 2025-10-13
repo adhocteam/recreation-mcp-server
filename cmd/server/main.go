@@ -36,7 +36,6 @@ func main() {
 
 	// Set up context with cancellation
 	ctx, cancel := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
-	defer cancel()
 
 	// Create stdio transport
 	transport := &mcpsdk.StdioTransport{}
@@ -45,8 +44,10 @@ func main() {
 	logger.Info("MCP Server ready - communicating over stdio")
 	if err := server.Run(ctx, transport); err != nil {
 		logger.Error("Server error", "error", err.Error())
+		cancel()
 		os.Exit(1)
 	}
 
+	cancel()
 	logger.Info("MCP Server shut down gracefully")
 }

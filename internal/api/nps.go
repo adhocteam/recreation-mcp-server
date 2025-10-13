@@ -88,7 +88,7 @@ func (c *npsClient) SearchParks(ctx context.Context, params SearchParksParams) (
 	if err != nil {
 		return nil, fmt.Errorf("failed to search parks: %w", err)
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	body, err := util.ReadResponseBody(resp)
 	if err != nil {
@@ -111,7 +111,7 @@ func (c *npsClient) SearchParks(ctx context.Context, params SearchParksParams) (
 	}
 
 	if cacheData, err := json.Marshal(parks); err == nil {
-		c.cache.Set(cacheKey, cacheData)
+		_ = c.cache.Set(cacheKey, cacheData)
 	}
 
 	c.logger.Info("Parks search completed", "count", len(parks))
@@ -142,7 +142,7 @@ func (c *npsClient) GetParkDetails(ctx context.Context, parkCode string) (*model
 	if err != nil {
 		return nil, fmt.Errorf("failed to get park details: %w", err)
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	body, err := util.ReadResponseBody(resp)
 	if err != nil {
@@ -171,7 +171,7 @@ func (c *npsClient) GetParkDetails(ctx context.Context, parkCode string) (*model
 	park := &parks[0]
 
 	if cacheData, err := json.Marshal(park); err == nil {
-		c.cache.Set(cacheKey, cacheData)
+		_ = c.cache.Set(cacheKey, cacheData)
 	}
 
 	c.logger.Info("Park details retrieved", "parkCode", parkCode)
@@ -202,7 +202,7 @@ func (c *npsClient) GetAlerts(ctx context.Context, parkCode string) ([]models.Al
 	if err != nil {
 		return nil, fmt.Errorf("failed to get alerts: %w", err)
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	body, err := util.ReadResponseBody(resp)
 	if err != nil {
@@ -225,7 +225,7 @@ func (c *npsClient) GetAlerts(ctx context.Context, parkCode string) ([]models.Al
 	}
 
 	if cacheData, err := json.Marshal(alerts); err == nil {
-		c.cache.Set(cacheKey, cacheData)
+		_ = c.cache.Set(cacheKey, cacheData)
 	}
 
 	c.logger.Info("Alerts retrieved", "parkCode", parkCode, "count", len(alerts))
@@ -260,7 +260,7 @@ func (c *npsClient) GetCampgrounds(ctx context.Context, params SearchCampgrounds
 	if err != nil {
 		return nil, fmt.Errorf("failed to search campgrounds: %w", err)
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	body, err := util.ReadResponseBody(resp)
 	if err != nil {
@@ -283,7 +283,7 @@ func (c *npsClient) GetCampgrounds(ctx context.Context, params SearchCampgrounds
 	}
 
 	if cacheData, err := json.Marshal(campgrounds); err == nil {
-		c.cache.Set(cacheKey, cacheData)
+		_ = c.cache.Set(cacheKey, cacheData)
 	}
 
 	c.logger.Info("Campgrounds search completed", "count", len(campgrounds))
@@ -313,7 +313,7 @@ func (c *npsClient) GetActivities(ctx context.Context) ([]models.Activity, error
 	if err != nil {
 		return nil, fmt.Errorf("failed to get activities: %w", err)
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	body, err := util.ReadResponseBody(resp)
 	if err != nil {
@@ -336,7 +336,7 @@ func (c *npsClient) GetActivities(ctx context.Context) ([]models.Activity, error
 	}
 
 	if cacheData, err := json.Marshal(activities); err == nil {
-		c.cache.Set(cacheKey, cacheData)
+		_ = c.cache.Set(cacheKey, cacheData)
 	}
 
 	c.logger.Info("Activities retrieved", "count", len(activities))
@@ -367,7 +367,7 @@ func (c *npsClient) GetVisitorCenters(ctx context.Context, parkCode string) ([]i
 	if err != nil {
 		return nil, fmt.Errorf("failed to get visitor centers: %w", err)
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	body, err := util.ReadResponseBody(resp)
 	if err != nil {
@@ -390,7 +390,7 @@ func (c *npsClient) GetVisitorCenters(ctx context.Context, parkCode string) ([]i
 	}
 
 	if cacheData, err := json.Marshal(centers); err == nil {
-		c.cache.Set(cacheKey, cacheData)
+		_ = c.cache.Set(cacheKey, cacheData)
 	}
 
 	c.logger.Info("Visitor centers retrieved", "parkCode", parkCode, "count", len(centers))
