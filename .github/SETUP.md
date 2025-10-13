@@ -57,10 +57,11 @@ Add to your main README.md to show CI status:
 - ✓ Coverage uploaded to Codecov (optional)
 
 ### Lint Job  
-- ✓ golangci-lint with 15+ linters
-- ✓ Code formatting checks
+- ✓ golangci-lint v2.5.0 with 10+ linters
+- ✓ Code formatting checks (gofmt, goimports)
 - ✓ Import statement organization
-- ✓ Common Go issues detected
+- ✓ Common Go issues detected (errcheck, govet, staticcheck)
+- ✓ Configuration: `.golangci.yml` (v2 format)
 
 ### Build Job
 - ✓ Server binary compiles successfully

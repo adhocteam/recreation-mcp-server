@@ -21,9 +21,10 @@ Runs automatically on:
    - Current coverage: ~25%
 
 2. **Lint** - Code quality checks
-   - Runs golangci-lint with multiple linters
+   - Runs golangci-lint v2.5.0 with multiple linters
    - Checks for common issues and code smells
    - Ensures consistent code style
+   - Uses configuration from `.golangci.yml`
 
 3. **Build** - Verifies the project builds
    - Compiles the MCP server binary
@@ -90,7 +91,8 @@ Add these badges to your main README.md:
 ### Linting failures
 
 - Run `make lint` locally to see the same errors
-- Install golangci-lint: `brew install golangci-lint` (macOS)
+- Install golangci-lint v2.5.0: `brew install golangci-lint` (macOS)
+- Ensure you're using golangci-lint v2.x (check with `golangci-lint version`)
 - Configure your editor to use `.golangci.yml`
 
 ### Build failures
