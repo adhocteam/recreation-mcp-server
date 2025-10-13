@@ -9,8 +9,10 @@ spec/
 # Ignore test files
 *_test.go
 test/
+testdata/
 coverage.out
 coverage.html
+*.test
 
 # Ignore CI/CD files
 .github/
@@ -19,6 +21,8 @@ coverage.html
 # Ignore environment files
 .env
 .env.*
+!.env.example
+config.yaml
 
 # Ignore IDE files
 .vscode/
@@ -36,3 +40,19 @@ temp/
 
 # Ignore logs
 *.log
+
+# Ignore Docker files (not needed in build context)
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+
+# Ignore build artifacts
+mcp-server
+*.exe
+*.dll
+*.so
+*.dylib
+bin/
+dist/
+vendor/
+.cache/

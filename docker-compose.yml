@@ -1,0 +1,29 @@
+services:
+  mcp-recreation-server:
+    build: .
+    container_name: recreation-mcp-server
+    environment:
+      - NPS_API_KEY=${NPS_API_KEY}
+      - RECREATION_GOV_API_KEY=${RECREATION_GOV_API_KEY}
+      - OPENWEATHER_API_KEY=${OPENWEATHER_API_KEY}
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+      - CACHE_ENABLED=${CACHE_ENABLED:-true}
+      - CACHE_TTL_SECONDS=${CACHE_TTL_SECONDS:-3600}
+    volumes:
+      # Uncomment if you have a config.yaml file:
+      # - ./config.yaml:/home/mcp/config.yaml:ro
+      - cache-data:/home/mcp/.cache
+    stdin_open: true
+    tty: true
+    # Security options
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp
+    user: "1000:1000"
+    restart: unless-stopped
+
+volumes:
+  cache-data:
+    driver: local
