@@ -7,6 +7,32 @@ An MCP (Model Context Protocol) server written in Go that enables LLMs like Clau
 - Recreation.gov API - Recreation areas, facilities, and campsites across federal lands
 - OpenWeatherMap API - Current weather and forecasts for outdoor locations
 
+## Table of Contents
+
+- [Features](#features)
+- [MCP Tools](#mcp-tools)
+- [Prerequisites](#prerequisites)
+  - [Getting API Keys](#getting-api-keys)
+- [Quick Start](#quick-start)
+- [Example Queries](#example-queries)
+- [Project Structure](#project-structure)
+- [Configuration](#configuration)
+- [Development](#development)
+  - [Local Development Setup](#local-development-setup)
+  - [Build Locally](#build-locally)
+  - [Run Tests](#run-tests)
+  - [Code Quality](#code-quality)
+  - [Testing with Claude Desktop](#testing-with-claude-desktop)
+- [Architecture](#architecture)
+- [Performance](#performance)
+- [Security](#security)
+- [Troubleshooting](#troubleshooting)
+- [Contributing](#contributing)
+- [Roadmap](#roadmap)
+- [Support](#support)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
+
 ## Features
 
 - Search and explore national parks across the United States
