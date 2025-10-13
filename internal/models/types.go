@@ -4,23 +4,23 @@ import "time"
 
 // Park represents a national park from the NPS API
 type Park struct {
-	ID             string          `json:"id"`
-	ParkCode       string          `json:"parkCode"`
-	Name           string          `json:"name"`
-	FullName       string          `json:"fullName"`
-	Description    string          `json:"description"`
-	States         string          `json:"states"`
-	Latitude       string          `json:"latitude"`
-	Longitude      string          `json:"longitude"`
-	URL            string          `json:"url"`
-	Activities     []Activity      `json:"activities,omitempty"`
-	Contacts       *Contact        `json:"contacts,omitempty"`
-	EntranceFees   []EntranceFee   `json:"entranceFees,omitempty"`
-	Hours          *OperatingHours `json:"operatingHours,omitempty"`
-	Addresses      []Address       `json:"addresses,omitempty"`
-	Images         []Image         `json:"images,omitempty"`
-	WeatherInfo    string          `json:"weatherInfo,omitempty"`
-	DirectionsInfo string          `json:"directionsInfo,omitempty"`
+	ID             string           `json:"id"`
+	ParkCode       string           `json:"parkCode"`
+	Name           string           `json:"name"`
+	FullName       string           `json:"fullName"`
+	Description    string           `json:"description"`
+	States         string           `json:"states"`
+	Latitude       string           `json:"latitude"`
+	Longitude      string           `json:"longitude"`
+	URL            string           `json:"url"`
+	Activities     []Activity       `json:"activities,omitempty"`
+	Contacts       *Contact         `json:"contacts,omitempty"`
+	EntranceFees   []EntranceFee    `json:"entranceFees,omitempty"`
+	Hours          []OperatingHours `json:"operatingHours,omitempty"`
+	Addresses      []Address        `json:"addresses,omitempty"`
+	Images         []Image          `json:"images,omitempty"`
+	WeatherInfo    string           `json:"weatherInfo,omitempty"`
+	DirectionsInfo string           `json:"directionsInfo,omitempty"`
 }
 
 // Activity represents an activity available at a park or facility
