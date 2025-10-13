@@ -136,13 +136,27 @@ List all available activities across NPS and Recreation.gov.
 
 ## Prerequisites
 
-- **Go 1.24+** for local development and building
-- **Docker** for containerized deployment ([Install Docker](https://docs.docker.com/get-docker/))
-- **Docker Compose** for orchestration (included with Docker Desktop)
+### Required
 - **API Keys** - Free API keys from:
   - [National Park Service](https://www.nps.gov/subjects/developer/get-started.htm) - Get an NPS API key
   - [Recreation.gov (RIDB)](https://ridb.recreation.gov/) - Register for RIDB API access
   - [OpenWeatherMap](https://openweathermap.org/api) - Sign up for a free API key
+
+### Deployment Options
+
+You can run this MCP server in two ways:
+
+#### Option 1: Docker (Recommended for most users)
+- **Docker** and **Docker Compose** ([Install Docker](https://docs.docker.com/get-docker/))
+- No Go installation required
+- Easiest setup and most portable
+- Isolated environment
+
+#### Option 2: Native Go Application
+- **Go 1.24+** installed on your system
+- Direct execution without containerization
+- Faster startup time
+- Better for development
 
 ### Getting API Keys
 
@@ -182,17 +196,17 @@ cp .env.example .env
 # Edit .env and add your API keys
 ```
 
-### 3. Build and Run with Docker
+### 3. Choose Your Deployment Method
 
+#### Option A: Docker (Recommended)
+
+**Build and run:**
 ```bash
 docker-compose build
 docker-compose up
 ```
 
-### 4. Configure Claude Desktop
-
-Add the following configuration to your Claude Desktop config file (`~/Library/Application Support/Claude/claude_desktop_config.json` on macOS):
-
+**Configure Claude Desktop** (`~/Library/Application Support/Claude/claude_desktop_config.json`):
 ```json
 {
   "mcpServers": {
@@ -212,6 +226,32 @@ Add the following configuration to your Claude Desktop config file (`~/Library/A
 ```
 
 Replace `/path/to/recreation-mcp-server` with the actual path to this repository.
+
+#### Option B: Native Go Application
+
+**Build and run:**
+```bash
+go build -o recreation-mcp-server
+./recreation-mcp-server
+```
+
+**Configure Claude Desktop** (`~/Library/Application Support/Claude/claude_desktop_config.json`):
+```json
+{
+  "mcpServers": {
+    "recreation": {
+      "command": "/path/to/recreation-mcp-server/recreation-mcp-server",
+      "env": {
+        "NPS_API_KEY": "your-nps-api-key",
+        "RIDB_API_KEY": "your-ridb-api-key",
+        "OPENWEATHER_API_KEY": "your-openweather-api-key"
+      }
+    }
+  }
+}
+```
+
+Replace `/path/to/recreation-mcp-server` with the actual path to this repository and add your API keys.
 
 ## Development
 
@@ -671,6 +711,3 @@ MIT License - see [LICENSE](./LICENSE) file for details.
 - **Recreation.gov**: Recreation Information Database (RIDB) from [Recreation.gov](https://ridb.recreation.gov/)
 - **OpenWeatherMap**: Weather data from [OpenWeatherMap](https://openweathermap.org/)
 
----
-
-**Built with ❤️ for outdoor enthusiasts and AI exploration**
