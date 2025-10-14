@@ -668,12 +668,25 @@ Contributions are welcome! Here's how you can help:
 - Document exported functions and packages
 - Update README for user-facing changes
 - Keep commits atomic and well-described
+- Review `AGENTS.md` for project conventions and patterns
 
 ### Code Review Process
-- All PRs require review
-- CI checks must pass
+- All PRs require review before merging
+- CI checks must pass (automated via GitHub Actions)
+- Branches must be up to date with `main` before merging
 - Maintain backward compatibility
 - Consider performance implications
+
+### Branch Protection Rules
+The `main` branch is protected with the following requirements:
+- ✅ All status checks must pass:
+  - **Test** - Full test suite (34 tests)
+  - **Lint** - golangci-lint with zero issues
+  - **Build** - Successful compilation
+- ✅ Branches must be up to date before merging
+- ✅ Pull request reviews required
+
+These protections ensure code quality and prevent broken code from reaching production.
 
 ## Roadmap
 
