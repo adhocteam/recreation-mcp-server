@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Recreation MCP Server - Discover outdoor recreation opportunities through AI. Integrates National Park Service, Recreation.gov, and weather data for Claude Desktop.">
+    <title>Recreation MCP Server</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        main {
+            padding: 60px 40px;
+        }
+
+        section {
+            margin-bottom: 48px;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            margin-bottom: 16px;
+            color: #2d3748;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 8px;
+        }
+
+        p {
+            margin-bottom: 16px;
+            color: #4a5568;
+            font-size: 1.1rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .feature {
+            background: #f7fafc;
+            padding: 24px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .feature h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            color: #2d3748;
+        }
+
+        .feature p {
+            font-size: 1rem;
+            color: #718096;
+            margin: 0;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .tool {
+            background: #edf2f7;
+            padding: 16px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            color: #4a5568;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 48px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 48px;
+        }
+
+        .cta-section h2 {
+            color: white;
+            border: none;
+            margin-bottom: 24px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 24px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        footer {
+            text-align: center;
+            padding: 32px;
+            color: #718096;
+            font-size: 0.9rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #48bb78;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        code {
+            background: #edf2f7;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #d63384;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 40px 24px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            main {
+                padding: 40px 24px;
+            }
+
+            .cta-section {
+                padding: 32px 24px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏕️ Recreation MCP Server</h1>
+            <p class="subtitle">Discover outdoor recreation opportunities using your favorite LLM tool</p>
+        </header>
+
+        <main>
+            <section>
+                <h2>What is it?</h2>
+                <p>
+                    Recreation MCP Server is a <strong>Model Context Protocol (MCP)</strong> server that enables 
+                    AI assistants like Claude to help you discover and plan outdoor recreation activities. 
+                    It integrates three powerful APIs for information on national parks, recreation activities, and weather information into a single, AI-friendly interface.
+                </p>
+            </section>
+
+            <section>
+                <h2>Key Features</h2>
+                <div class="features">
+                    <div class="feature">
+                        <h3>🏞️ National Parks</h3>
+                        <p>Search parks, get details, check alerts, and find visitor centers across the U.S.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>⛺ Campgrounds</h3>
+                        <p>Discover campgrounds and recreation areas with detailed facility information.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>🌤️ Weather</h3>
+                        <p>Get current conditions and 5-day forecasts for any location.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>🚀 Fast & Secure</h3>
+                        <p>Built in Go with caching, runs in Docker with security hardening.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Available Tools <span class="badge">9 Tools</span></h2>
+                <div class="tools-grid">
+                    <div class="tool">🔍 Search Parks</div>
+                    <div class="tool">📋 Park Details</div>
+                    <div class="tool">⚠️ Park Alerts</div>
+                    <div class="tool">🏕️ Search Campgrounds</div>
+                    <div class="tool">🌲 Recreation Areas</div>
+                    <div class="tool">🏢 Facility Details</div>
+                    <div class="tool">☀️ Current Weather</div>
+                    <div class="tool">📅 Weather Forecast</div>
+                    <div class="tool">🎯 List Activities</div>
+                </div>
+            </section>
+
+            <section>
+                <h2>How It Works</h2>
+                <p>
+                    Ask LLM tools like <a href="https://claude.ai/download">Claude</a> natural language questions like:
+                </p>
+                <ul style="list-style: none; padding-left: 0; color: #4a5568; font-size: 1.05rem;">
+                    <li style="padding: 8px 0;">💬 "What national parks are in Colorado?"</li>
+                    <li style="padding: 8px 0;">💬 "Tell me about Yosemite National Park"</li>
+                    <li style="padding: 8px 0;">💬 "Find campgrounds near Yellowstone"</li>
+                    <li style="padding: 8px 0;">💬 "What's the weather like at Rocky Mountain National Park?"</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Technology</h2>
+                <p>
+                    Built with <strong>Go 1.24+</strong>, containerized with <strong>Docker</strong>, 
+                    and secured with industry best practices. The server integrates:
+                </p>
+                <ul style="list-style: none; padding-left: 0; color: #4a5568; font-size: 1.05rem;">
+                    <li style="padding: 6px 0;">• <a href="https://www.nps.gov/subjects/developer/api-documentation.htm">National Park Service API</a></li>
+                    <li style="padding: 6px 0;">• <a href="https://ridb.recreation.gov/docs">Recreation.gov (RIDB) API</a></li>
+                    <li style="padding: 6px 0;">• <a href="https://openweathermap.org/api">OpenWeatherMap API</a></li>
+                </ul>
+            </section>
+
+            <div class="cta-section">
+                <h2>Get Started</h2>
+                <p style="color: white; opacity: 0.9; margin-bottom: 8px;">
+                    Open source and ready to run with Claude Desktop
+                </p>
+                <div class="cta-buttons">
+                    <a href="https://github.com/adhocteam/recreation-mcp-server" class="btn btn-primary">
+                        View on GitHub
+                    </a>
+                    <a href="https://github.com/adhocteam/recreation-mcp-server#quick-start" class="btn btn-secondary">
+                        Quick Start Guide
+                    </a>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>
+                Built with ❤️ for the outdoor community by <a href="https://adhoc.team/index.html">Ad Hoc</a> • 
+                Licensed under MIT • 
+                <a href="https://github.com/adhocteam/recreation-mcp-server" style="color: #667eea; text-decoration: none;">GitHub</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
