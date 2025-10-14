@@ -19,6 +19,8 @@ vendor/
 
 # Build output
 /mcp-server
+/recreation-mcp-server
+/test-server
 /cmd/server/mcp-server
 
 # Environment variables

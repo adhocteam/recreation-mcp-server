@@ -102,7 +102,7 @@ func (s *Server) registerTools() error {
 	// Register search_parks tool
 	mcpsdk.AddTool(s.mcpServer, &mcpsdk.Tool{
 		Name:        "search_parks",
-		Description: "Search for national parks by name, state, or activity",
+		Description: "Search for national parks by name, state, or activity. Returns basic park info. For detailed planning, use a small limit (3-5 parks) then follow up with get_park_details, search_campgrounds, and get_park_alerts for each park of interest.",
 	}, s.handleSearchParks)
 
 	// Register get_park_details tool
@@ -120,7 +120,7 @@ func (s *Server) registerTools() error {
 	// Register search_campgrounds tool
 	mcpsdk.AddTool(s.mcpServer, &mcpsdk.Tool{
 		Name:        "search_campgrounds",
-		Description: "Search for campgrounds in national parks or recreation areas",
+		Description: "Search for campgrounds in national parks. You can search by park_code (e.g. 'yose' for Yosemite), state code (e.g. 'CA'), or query text (e.g. 'yosemite'). Use get_park_details first to find a park's code if needed.",
 	}, s.handleSearchCampgrounds)
 
 	// Register search_recreation_areas tool

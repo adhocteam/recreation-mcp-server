@@ -17,7 +17,7 @@ type SearchParksInput struct {
 	Query    string `json:"query,omitempty" jsonschema:"Search text to filter parks by name or description"`
 	State    string `json:"state,omitempty" jsonschema:"Two-letter state code (e.g., CA, CO, UT)"`
 	Activity string `json:"activity,omitempty" jsonschema:"Activity name to filter parks (e.g., Hiking, Camping)"`
-	Limit    int    `json:"limit,omitempty" jsonschema:"Maximum number of results to return,default=10"`
+	Limit    int    `json:"limit,omitempty" jsonschema:"Maximum number of results to return. Use 3-5 for detailed planning where you'll call other tools for each park. Default=10"`
 }
 
 // SearchParksOutput defines the output for search_parks tool
@@ -128,9 +128,9 @@ func (s *Server) handleGetParkAlerts(ctx context.Context, req *mcpsdk.CallToolRe
 
 // SearchCampgroundsInput defines the input for search_campgrounds tool
 type SearchCampgroundsInput struct {
-	ParkCode string `json:"park_code,omitempty" jsonschema:"NPS park code to filter campgrounds"`
-	State    string `json:"state,omitempty" jsonschema:"Two-letter state code"`
-	Query    string `json:"query,omitempty" jsonschema:"Search text for campground names"`
+	ParkCode string `json:"park_code,omitempty" jsonschema:"NPS park code (e.g. 'yose' for Yosemite) - get this from search_parks or get_park_details first"`
+	State    string `json:"state,omitempty" jsonschema:"Two-letter state code (e.g. 'CA', 'CO')"`
+	Query    string `json:"query,omitempty" jsonschema:"Search text for campground or park names (e.g. 'yosemite', 'yellowstone')"`
 	Limit    int    `json:"limit,omitempty" jsonschema:"Maximum number of results,default=10"`
 }
 
