@@ -1,0 +1,53 @@
+# Recreation MCP Server
+
+## Project Overview
+The Recreation MCP Server is a Model Context Protocol (MCP) server that enables AI assistants to help users discover and plan outdoor recreation activities. It integrates three APIs: National Park Service, Recreation.gov, and OpenWeatherMap.
+
+## Key Features
+- 9 MCP tools for outdoor recreation discovery
+- National parks search and detailed information
+- Campground and recreation area discovery
+- Real-time weather data and forecasts
+- Park alerts and safety information
+- Facility details and amenities
+- Activity listings and recommendations
+
+## Target Users
+- Claude Desktop users seeking outdoor recreation information
+- Developers building AI-powered travel and recreation applications
+- Outdoor enthusiasts planning trips and activities
+
+## Technology Stack
+- Language: Go 1.24+
+- Protocol: Model Context Protocol (MCP)
+- Containerization: Docker with security hardening
+- APIs: NPS, Recreation.gov (RIDB), OpenWeatherMap
+- Architecture: Clean, simple, fast design philosophy
+
+## MCP Tools Available
+1. search_parks - Find national parks by location or activity
+2. get_park_details - Detailed park information including hours and fees
+3. get_park_alerts - Current alerts and closures
+4. search_campgrounds - Find campgrounds in parks
+5. search_recreation_areas - Discover recreation areas
+6. get_facility_details - Detailed facility information
+7. get_weather - Current weather conditions
+8. get_weather_forecast - 5-day weather forecasts
+9. list_activities - Available activities across all sources
+
+## Installation
+Requires API keys from:
+- National Park Service (https://www.nps.gov/subjects/developer/)
+- Recreation.gov (https://ridb.recreation.gov/)
+- OpenWeatherMap (https://openweathermap.org/api)
+
+Can be run via Docker or native Go installation.
+
+## Repository
+https://github.com/adhocteam/recreation-mcp-server
+
+## License
+MIT License
+
+## Status
+Production-ready v1.0.0 with comprehensive testing and documentation.
