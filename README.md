@@ -705,7 +705,7 @@ Future enhancements being considered:
 ## Support
 
 - **Documentation**: See [DOCKER.md](./DOCKER.md) for Docker-specific help
-- **Issues**: Report bugs on [GitHub Issues](https://github.com/markheadd/recreation-mcp-server/issues)
+- **Issues**: Report bugs on [GitHub Issues](https://github.com/adhocteam/recreation-mcp-server/issues)
 - **Discussions**: Ask questions in GitHub Discussions
 - **Updates**: Watch the repository for updates
 
