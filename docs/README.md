@@ -73,6 +73,27 @@ To customize:
 - Modify colors in the CSS `<style>` section
 - Update repository links (currently set to `adhocteam/recreation-mcp-server`)
 
+## Assets
+
+### Favicon
+- **favicon.svg** - Scalable vector favicon with mountain and tree theme
+  - Displays in browser tabs and bookmarks
+  - Matches the project's outdoor recreation theme
+  - Works across all modern browsers
+
+### Social Media Sharing
+- **social-preview.svg** - Open Graph/Twitter card image (1200x630)
+  - Optimized for Facebook, Twitter, LinkedIn, Slack, Discord
+  - Features project logo, title, and key features
+  - Automatically displays when sharing the site URL
+
+### Meta Tags
+The `index.html` includes comprehensive meta tags for:
+- **Open Graph** (Facebook, LinkedIn, Slack, Discord)
+- **Twitter Cards** (summary_large_image format)
+- **SEO** (keywords, description, author)
+- **Theme color** for mobile browsers
+
 ## Design
 
 The site features:
@@ -81,3 +102,4 @@ The site features:
 - Fast loading (no external dependencies)
 - Accessible HTML structure
 - Clear call-to-action buttons
+- Professional favicon and social sharing images
