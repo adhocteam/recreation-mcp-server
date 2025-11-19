@@ -7,7 +7,7 @@ An MCP (Model Context Protocol) server written in Go that enables LLMs like Clau
 - Recreation.gov API - Recreation areas, facilities, and campsites across federal lands
 - OpenWeatherMap API - Current weather and forecasts for outdoor locations
 
-![Recreation MCP Server](./recreation-mcp.png)
+![Recreation MCP Server](./demo.gif)
 
 ## Table of Contents
 
