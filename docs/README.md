@@ -1,6 +1,6 @@
-# Recreation MCP Server - GitHub Pages Site
+# OutdoorGPT - GitHub Pages Site
 
-This directory contains a simple, single-page website for the Recreation MCP Server project.
+This directory contains a simple, single-page website for the OutdoorGPT project.
 
 ## View Locally
 

@@ -1,7 +1,7 @@
-# Recreation MCP Server
+# OutdoorGPT
 
 ## Project Overview
-The Recreation MCP Server is a Model Context Protocol (MCP) server that enables AI assistants to help users discover and plan outdoor recreation activities. It integrates three APIs: National Park Service, Recreation.gov, and OpenWeatherMap.
+OutdoorGPT is a Model Context Protocol (MCP) server that enables AI assistants to help users discover and plan outdoor recreation activities. It integrates three APIs: National Park Service, Recreation.gov, and OpenWeatherMap.
 
 ## Key Features
 - 9 MCP tools for outdoor recreation discovery
