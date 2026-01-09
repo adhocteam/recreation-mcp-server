@@ -302,12 +302,21 @@ make test-coverage
 go test -coverprofile=coverage.out ./...
 go tool cover -html=coverage.out -o coverage.html
 
+# Check coverage percentage
+go tool cover -func=coverage.out | grep total
+
 # Run specific package tests
 go test -v ./internal/api/...
 
 # Run with verbose output
 go test -v -run TestSearchParks ./internal/api/
 ```
+
+**Coverage Requirements:**
+- **Minimum threshold**: 25% (enforced in CI to prevent regression)
+- **Target coverage**: 70% (see Contributing section for roadmap)
+- CI will fail if coverage drops below the minimum threshold
+- Always check coverage locally before pushing: `make test-coverage`
 
 ### Run Locally (without Docker)
 
@@ -664,11 +673,36 @@ Contributions are welcome! Here's how you can help:
 
 ### Development Guidelines
 - Follow Go best practices and idioms
-- Maintain test coverage above 70%
+- Maintain test coverage above minimum threshold (see coverage requirements below)
 - Document exported functions and packages
 - Update README for user-facing changes
 - Keep commits atomic and well-described
 - Review `AGENTS.md` for project conventions and patterns
+
+### Test Coverage Requirements
+
+**Current Status:**
+- **Overall coverage**: ~25%
+- **Minimum threshold**: 25% (enforced in CI)
+- **Target coverage**: 70%
+
+**Coverage by Package:**
+- `internal/config`: 94.3% ✅
+- `internal/cache`: 45.7%
+- `internal/api`: 27.2%
+- `internal/mcp`: 0.0% ⚠️
+- `pkg/util`: 0.0% ⚠️
+
+**Roadmap to 70% Coverage:**
+1. **Phase 1** (Target: ~50-60%): Add comprehensive handler tests for `internal/mcp`
+2. **Phase 2** (Target: ~60-70%): Add utility package tests for `pkg/util`
+3. **Phase 3** (Target: 70%+): Add integration tests and improve API client coverage
+
+**Before Submitting PRs:**
+- Check coverage locally: `make test-coverage`
+- Ensure your changes don't decrease overall coverage
+- Add tests for new features and bug fixes
+- Aim for 70%+ coverage on new code
 
 ### Code Review Process
 - All PRs require review before merging

@@ -58,11 +58,14 @@ jobs:
       run: |
         COVERAGE=$(go tool cover -func=coverage.out | grep total | awk '{print $3}' | sed 's/%//')
         echo "Total coverage: ${COVERAGE}%"
-        # Optionally fail if coverage is below threshold
-        # if (( $(echo "$COVERAGE < 25.0" | bc -l) )); then
-        #   echo "Coverage ${COVERAGE}% is below minimum 25%"
-        #   exit 1
-        # fi
+        # Enforce minimum coverage threshold
+        # Current: 25% (to prevent regression)
+        # Target: 70% (see README.md for roadmap)
+        if (( $(echo "$COVERAGE < 25.0" | bc -l) )); then
+          echo "❌ Coverage ${COVERAGE}% is below minimum 25%"
+          exit 1
+        fi
+        echo "✓ Coverage check passed"
 
   lint:
     name: Lint
