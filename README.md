@@ -266,7 +266,7 @@ Replace `/path/to/recreation-mcp-server` with the actual path to this repository
 
 2. **Clone and setup**
    ```bash
-   git clone https://github.com/markheadd/recreation-mcp-server.git
+   git clone https://github.com/adhocteam/recreation-mcp-server.git
    cd recreation-mcp-server
    go mod download
    ```
