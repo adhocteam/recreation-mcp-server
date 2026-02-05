@@ -4,10 +4,10 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/markheadd/recreation-mcp-server/internal/api"
-	"github.com/markheadd/recreation-mcp-server/internal/cache"
-	"github.com/markheadd/recreation-mcp-server/internal/config"
-	"github.com/markheadd/recreation-mcp-server/pkg/util"
+	"github.com/adhocteam/recreation-mcp-server/internal/api"
+	"github.com/adhocteam/recreation-mcp-server/internal/cache"
+	"github.com/adhocteam/recreation-mcp-server/internal/config"
+	"github.com/adhocteam/recreation-mcp-server/pkg/util"
 	mcpsdk "github.com/modelcontextprotocol/go-sdk/mcp"
 )
 
