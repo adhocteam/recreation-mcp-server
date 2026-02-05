@@ -1,4 +1,4 @@
-module github.com/markheadd/recreation-mcp-server
+module github.com/adhocteam/recreation-mcp-server
 
 go 1.24.4
 
