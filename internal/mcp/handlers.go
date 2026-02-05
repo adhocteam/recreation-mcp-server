@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/markheadd/recreation-mcp-server/internal/api"
-	"github.com/markheadd/recreation-mcp-server/internal/models"
+	"github.com/adhocteam/recreation-mcp-server/internal/api"
+	"github.com/adhocteam/recreation-mcp-server/internal/models"
 	mcpsdk "github.com/modelcontextprotocol/go-sdk/mcp"
 )
 
