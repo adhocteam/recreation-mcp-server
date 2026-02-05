@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/markheadd/recreation-mcp-server/internal/cache"
-	"github.com/markheadd/recreation-mcp-server/pkg/util"
+	"github.com/adhocteam/recreation-mcp-server/internal/cache"
+	"github.com/adhocteam/recreation-mcp-server/pkg/util"
 )
 
 // loadTestData loads a test fixture from testdata directory
