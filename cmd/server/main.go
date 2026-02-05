@@ -8,9 +8,9 @@ import (
 	"syscall"
 
 	"github.com/joho/godotenv"
-	"github.com/markheadd/recreation-mcp-server/internal/config"
-	"github.com/markheadd/recreation-mcp-server/internal/mcp"
-	"github.com/markheadd/recreation-mcp-server/pkg/util"
+	"github.com/adhocteam/recreation-mcp-server/internal/config"
+	"github.com/adhocteam/recreation-mcp-server/internal/mcp"
+	"github.com/adhocteam/recreation-mcp-server/pkg/util"
 	mcpsdk "github.com/modelcontextprotocol/go-sdk/mcp"
 )
 
