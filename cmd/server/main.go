@@ -7,10 +7,10 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/joho/godotenv"
 	"github.com/adhocteam/recreation-mcp-server/internal/config"
 	"github.com/adhocteam/recreation-mcp-server/internal/mcp"
 	"github.com/adhocteam/recreation-mcp-server/pkg/util"
+	"github.com/joho/godotenv"
 	mcpsdk "github.com/modelcontextprotocol/go-sdk/mcp"
 )
 
