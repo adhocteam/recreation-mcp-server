@@ -185,7 +185,7 @@ You can run this MCP server in two ways:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/markheadd/recreation-mcp-server.git
+git clone https://github.com/adhocteam/recreation-mcp-server.git
 cd recreation-mcp-server
 ```
 
