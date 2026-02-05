@@ -7,9 +7,9 @@ import (
 	"net/url"
 	"strconv"
 
-	"github.com/markheadd/recreation-mcp-server/internal/cache"
-	"github.com/markheadd/recreation-mcp-server/internal/models"
-	"github.com/markheadd/recreation-mcp-server/pkg/util"
+	"github.com/adhocteam/recreation-mcp-server/internal/cache"
+	"github.com/adhocteam/recreation-mcp-server/internal/models"
+	"github.com/adhocteam/recreation-mcp-server/pkg/util"
 )
 
 // WeatherClient defines the interface for the OpenWeatherMap API client
