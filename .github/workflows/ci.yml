@@ -13,6 +13,9 @@ permissions:
   checks: write        # Allow writing check runs (test results)
   pull-requests: write # Allow commenting on PRs (for coverage reports)
 
+env:
+  GOTOOLCHAIN: local
+
 jobs:
   test:
     name: Test
@@ -31,7 +34,7 @@ jobs:
     - name: Set up Go
       uses: actions/setup-go@v5
       with:
-        go-version-file: go.mod
+        go-version: '1.25.9'
         cache: true
 
     - name: Verify dependencies
@@ -83,7 +86,7 @@ jobs:
     - name: Set up Go
       uses: actions/setup-go@v5
       with:
-        go-version-file: go.mod
+        go-version: '1.25.9'
         cache: true
 
     - name: golangci-lint
@@ -109,7 +112,7 @@ jobs:
     - name: Set up Go
       uses: actions/setup-go@v5
       with:
-        go-version-file: go.mod
+        go-version: '1.25.9'
         cache: true
 
     - name: Build
