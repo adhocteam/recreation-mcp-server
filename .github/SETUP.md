@@ -6,6 +6,7 @@
 ✅ **Code Coverage** - Tracks test coverage over time  
 ✅ **Linting** - Ensures code quality and consistency  
 ✅ **Build Verification** - Confirms the server compiles successfully  
+✅ **Security Scanning** - Runs vulnerability checks and dependency update visibility  
 
 ## Files Created
 
@@ -13,6 +14,7 @@
 .github/
   workflows/
     ci.yml              # Main CI workflow
+    security.yml        # Security workflow (vulnerability + dependency checks)
   WORKFLOWS.md          # Detailed documentation
 .golangci.yml           # Linting configuration
 Makefile                # Updated with ci-check target
@@ -67,6 +69,11 @@ Add to your main README.md to show CI status:
 - ✓ Server binary compiles successfully
 - ✓ Build artifact uploaded (kept for 7 days)
 
+### Security Workflow
+- ✓ Module integrity verification (`go mod verify`)
+- ✓ Reachable vulnerability scanning (`govulncheck ./...`)
+- ✓ Available dependency update reporting (`go list -m -u all`)
+
 ## Current Status
 
 - **Test Coverage:** 25.3%
@@ -98,7 +105,7 @@ Add to your main README.md to show CI status:
 ## Troubleshooting
 
 **Tests pass locally but fail in CI?**
-- Check Go version matches (1.21+)
+- Check Go version matches (1.25+)
 - Run `go mod tidy`
 - Test with race detector: `go test -race ./...`
 
@@ -124,3 +131,4 @@ To require passing tests before merge:
 1. Go to Settings → Branches
 2. Add branch protection rule for `main`
 3. Require status checks to pass: `Test`, `Lint`, `Build`
+4. Add `Dependency And Vulnerability Scan` as a required check for security gating

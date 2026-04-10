@@ -1,4 +1,5 @@
 [![CI](https://github.com/adhocteam/recreation-mcp-server/actions/workflows/ci.yml/badge.svg)](https://github.com/adhocteam/recreation-mcp-server/actions/workflows/ci.yml)
+[![Security](https://github.com/adhocteam/recreation-mcp-server/actions/workflows/security.yml/badge.svg)](https://github.com/adhocteam/recreation-mcp-server/actions/workflows/security.yml)
 
 # Recreation Opportunities MCP Server
 

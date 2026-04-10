@@ -31,6 +31,27 @@ Runs automatically on:
    - Uploads build artifact for 7 days
    - Ensures no build errors
 
+### Security Workflow (`.github/workflows/security.yml`)
+
+Runs automatically on:
+- Push to `main` or `develop` branches
+- Pull requests targeting `main` or `develop`
+- Weekly schedule (Monday at 09:00 UTC)
+- Manual dispatch from GitHub Actions UI
+
+**Checks:**
+
+1. **Module Verification**
+   - Runs `go mod verify` to validate module integrity
+
+2. **Vulnerability Scan**
+   - Installs and runs `govulncheck ./...`
+   - Fails if reachable vulnerabilities are detected
+
+3. **Dependency Update Visibility**
+   - Runs `go list -m -u all`
+   - Shows available module updates in workflow logs
+
 ## Running Locally
 
 You can run the same checks locally before committing:
@@ -47,6 +68,12 @@ make lint
 
 # Run all pre-commit checks
 make pre-commit
+
+# Run vulnerability scan
+govulncheck ./...
+
+# Show available module updates
+go list -m -u all
 ```
 
 ## Code Coverage
@@ -76,6 +103,7 @@ Add these badges to your main README.md:
 
 ```markdown
 [![CI](https://github.com/adhocteam/recreation-mcp-server/actions/workflows/ci.yml/badge.svg)](https://github.com/adhocteam/recreation-mcp-server/actions/workflows/ci.yml)
+[![Security](https://github.com/adhocteam/recreation-mcp-server/actions/workflows/security.yml/badge.svg)](https://github.com/adhocteam/recreation-mcp-server/actions/workflows/security.yml)
 [![codecov](https://codecov.io/gh/adhocteam/recreation-mcp-server/branch/main/graph/badge.svg)](https://codecov.io/gh/adhocteam/recreation-mcp-server)
 [![Go Report Card](https://goreportcard.com/badge/github.com/adhocteam/recreation-mcp-server)](https://goreportcard.com/report/github.com/adhocteam/recreation-mcp-server)
 ```
@@ -84,7 +112,7 @@ Add these badges to your main README.md:
 
 ### Tests fail locally but pass in CI (or vice versa)
 
-- Ensure you're using the same Go version (1.21+)
+- Ensure you're using the same Go version (1.25+)
 - Run `go mod tidy` to sync dependencies
 - Check for environment-specific issues
 

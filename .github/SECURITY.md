@@ -32,6 +32,22 @@ permissions:
 - `pages: write` - Cannot deploy to GitHub Pages
 - `security-events: write` - Cannot modify security alerts
 
+### Global Permissions (`.github/workflows/security.yml`)
+
+```yaml
+permissions:
+   contents: read
+```
+
+**Why this permission?**
+- `contents: read` - Required to checkout and scan repository code and modules
+
+**NOT granted:**
+- `checks: write` - Security workflow does not need to post check-run annotations
+- `pull-requests: write` - Does not comment on PRs
+- `contents: write` - Cannot push code or modify repository content
+- `security-events: write` - Does not alter GitHub security alert state
+
 ## Job-Level Permissions
 
 ### Test Job
@@ -78,6 +94,25 @@ permissions:
 - Artifact uploads use `GITHUB_TOKEN` automatically
 - Cannot publish artifacts to external registries
 - Artifacts are scoped to the workflow run
+
+### Security Job
+
+```yaml
+permissions:
+   contents: read
+```
+
+**Purpose:** Verify module integrity and detect reachable vulnerabilities.
+
+**Checks performed:**
+- `go mod verify`
+- `govulncheck ./...`
+- `go list -m -u all`
+
+**Potential risks mitigated:**
+- Uses read-only token permissions
+- Uses checkout with `persist-credentials: false`
+- No artifact publication or repository write operations
 
 ## Security Best Practices
 
@@ -130,6 +165,13 @@ permissions:
 | repository-projects | ❌ | ❌ | ❌ | None |
 | security-events | ❌ | ❌ | ❌ | None |
 | statuses | ❌ | ❌ | ❌ | None |
+
+### Workflow Mapping
+
+| Workflow | contents | checks | pull-requests | security-events |
+|----------|----------|--------|---------------|-----------------|
+| CI (`ci.yml`) | read | write | write (test job) | none |
+| Security (`security.yml`) | read | none | none | none |
 
 ## Monitoring & Auditing
 
@@ -197,6 +239,6 @@ This document and workflow permissions should be reviewed:
 
 ---
 
-**Last Updated:** October 2025  
+**Last Updated:** April 2026  
 **Owner:** Engineering Team  
-**Next Review:** January 2026
+**Next Review:** July 2026
