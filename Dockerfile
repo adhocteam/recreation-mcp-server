@@ -1,5 +1,5 @@
 # Build stage
-FROM golang:1.24-alpine AS builder
+FROM golang:1.25.9-alpine3.22 AS builder
 
 WORKDIR /app
 
@@ -20,7 +20,7 @@ RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build \
     -o mcp-server ./cmd/server
 
 # Runtime stage
-FROM alpine:latest
+FROM alpine:3.22.2
 
 # Install runtime dependencies
 RUN apk --no-cache add ca-certificates tzdata && \

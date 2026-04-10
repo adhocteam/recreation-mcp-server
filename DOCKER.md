@@ -84,12 +84,12 @@ See the main README for configuration file format.
 The Dockerfile uses a two-stage build process:
 
 1. **Builder stage**: Compiles the Go binary
-   - Based on `golang:1.24-alpine`
+  - Based on `golang:1.25.9-alpine3.22`
    - Downloads dependencies
    - Builds static binary with security flags
    
 2. **Runtime stage**: Creates minimal runtime image
-   - Based on `alpine:latest`
+  - Based on `alpine:3.22.2`
    - Only includes necessary runtime dependencies
    - Creates non-root user (`mcp:mcp` with UID/GID 1000)
    - Binary size: ~20MB (optimized with `-ldflags='-w -s'`)

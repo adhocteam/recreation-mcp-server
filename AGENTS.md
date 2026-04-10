@@ -135,7 +135,7 @@ func TestSearchParks(t *testing.T) {
 ## Docker & Security
 
 ### Container Security
-- Multi-stage builds (golang:1.24-alpine → alpine:latest)
+- Multi-stage builds (golang:1.25.9-alpine3.22 -> alpine:3.22.2)
 - Non-root user (UID 1000)
 - Read-only filesystem with tmpfs for /tmp
 - Security flags: `-ldflags='-w -s -extldflags "-static"'`

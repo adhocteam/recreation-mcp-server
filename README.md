@@ -155,7 +155,7 @@ You can run this MCP server in two ways:
 - Isolated environment
 
 #### Option 2: Native Go Application
-- **Go 1.24+** installed on your system
+- **Go 1.25+** installed on your system
 - Direct execution without containerization
 - Faster startup time
 - Better for development
@@ -259,7 +259,7 @@ Replace `/path/to/recreation-mcp-server` with the actual path to this repository
 
 ### Local Development Setup
 
-1. **Install Go 1.24+**
+1. **Install Go 1.25+**
    ```bash
    go version  # Verify installation
    ```
