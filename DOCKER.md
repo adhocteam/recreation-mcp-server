@@ -84,7 +84,7 @@ See the main README for configuration file format.
 The Dockerfile uses a two-stage build process:
 
 1. **Builder stage**: Compiles the Go binary
-  - Based on `golang:1.25.10-alpine3.22`
+  - Based on `golang:1.25.13-alpine3.22`
    - Downloads dependencies
    - Builds static binary with security flags
    
