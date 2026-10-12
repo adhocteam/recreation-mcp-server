@@ -253,7 +253,7 @@ go test -coverprofile=coverage.out ./...
 All must pass with zero issues.
 
 ### Static Analysis
-- Use golangci-lint with version pinning (v2.5.0)
+- Use golangci-lint with version pinning (v2.14.0)
 - Configuration in `.golangci.yml`
 - No warnings allowed in main branch
 

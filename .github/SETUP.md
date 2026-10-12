@@ -59,7 +59,7 @@ Add to your main README.md to show CI status:
 - ✓ Coverage uploaded to Codecov (optional)
 
 ### Lint Job  
-- ✓ golangci-lint v2.5.0 with 10+ linters
+- ✓ golangci-lint v2.14.0 with 10+ linters
 - ✓ Code formatting checks (gofmt, goimports)
 - ✓ Import statement organization
 - ✓ Common Go issues detected (errcheck, govet, staticcheck)
