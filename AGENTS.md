@@ -135,7 +135,7 @@ func TestSearchParks(t *testing.T) {
 ## Docker & Security
 
 ### Container Security
-- Multi-stage builds (golang:1.25.13-alpine3.22 -> alpine:3.22.2)
+- Multi-stage builds (golang:1.26.9-alpine3.22 -> alpine:3.22.2)
 - Non-root user (UID 1000)
 - Read-only filesystem with tmpfs for /tmp
 - Security flags: `-ldflags='-w -s -extldflags "-static"'`
@@ -253,7 +253,7 @@ go test -coverprofile=coverage.out ./...
 All must pass with zero issues.
 
 ### Static Analysis
-- Use golangci-lint with version pinning (v2.5.0)
+- Use golangci-lint with version pinning (v2.14.0)
 - Configuration in `.golangci.yml`
 - No warnings allowed in main branch
 
